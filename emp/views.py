@@ -1,19 +1,29 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import Emp
+from emp.library.my_library import my_contactus
+from emp.library.employee import get_all_emps
+
 
 
 def emp_home(request):
-    emps=Emp.objects.all()
-    return render(request,"emp/home.html",{'emps':emps})
+    emps = get_all_emps()
+    return render(request, "emp/home.html", {'emps': emps})
+
+#def emp_home(request):
+   # emps=Emp.objects.all()
+    #return render(request,"emp/home.html",{'emps':emps})
     
 def login(request):
    
     return render(request,"emp/login.html",{})
     
-def contactus(request):
+#def contactus(request):
    
-    return render(request,"emp/contactus.html",{})
+    #return render(request,"emp/contactus.html",{})
+def contactus(request):
+        # Call the my_contactus function
+    return my_contactus(request)
     
 
 def add_emp(request):
