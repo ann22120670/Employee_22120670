@@ -6,7 +6,15 @@ from .models import Emp
 def emp_home(request):
     emps=Emp.objects.all()
     return render(request,"emp/home.html",{'emps':emps})
-
+    
+def login(request):
+   
+    return render(request,"emp/login.html",{})
+    
+def contactus(request):
+   
+    return render(request,"emp/contactus.html",{})
+    
 
 def add_emp(request):
     if request.method=="POST":
